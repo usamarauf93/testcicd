@@ -20,13 +20,13 @@ pipeline{
         }
         stage( "start Container"){
             steps{
-                sh 'docker compose up -d --no-color --wait'
+                sh 'docker compose up '
                 sh 'docker compose ps'
             }
         }
         stage('Run test Against Container'){
             steps{
-                sh "curl http://localhost:8080"
+                sh "curl http://localhost:8090"
             }
         }
     }
