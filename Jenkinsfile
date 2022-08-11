@@ -20,20 +20,20 @@ pipeline{
         }
         stage( "start Container"){
             steps{
-                sh 'docker compose up '
-               
+                sh 'docker compose up -d --no-color --wait'
+                sh 'docker compose ps'
             }
         }
         stage('Run test Against Container'){
             steps{
-                sh "curl http://localhost:8090"
+                sh "curl http://localhost:8080"
             }
         }
     }
     post{
         always{
             sh "docker compose down --remove-orphans -v"
-          
+            sh "docker compose ps"
         }
     }
 }
