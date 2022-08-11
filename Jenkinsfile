@@ -2,6 +2,11 @@ pipeline{
 
     agent any
     stages{
+        stage('Git BZT command'){
+            steps{
+                sh 'bzt execution.yml'
+            }
+        }
         stage("Verify Tooling"){ 
             steps{
                 sh '''
@@ -21,19 +26,13 @@ pipeline{
         stage( "start Container"){
             steps{
                 sh 'docker compose up'
-               
+
             }
         }
         stage('Run test Against Container'){
             steps{
                 sh "curl http://localhost:8090"
             }
-        }
-    }
-    post{
-        always{
-            sh "docker compose down --remove-orphans -v"
-          
         }
     }
 }
