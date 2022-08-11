@@ -21,7 +21,7 @@ pipeline{
         stage( "start Container"){
             steps{
                 sh 'docker compose up '
-                sh 'docker compose ps'
+               
             }
         }
         stage('Run test Against Container'){
@@ -33,7 +33,7 @@ pipeline{
     post{
         always{
             sh "docker compose down --remove-orphans -v"
-            sh "docker compose ps"
+          
         }
     }
 }
