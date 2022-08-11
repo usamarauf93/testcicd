@@ -26,6 +26,7 @@ pipeline{
         stage( "start Container"){
             steps{
                 sh 'docker compose up'
+
             }
         }
         stage('Run test Against Container'){
