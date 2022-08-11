@@ -2,6 +2,11 @@ pipeline{
 
     agent any
     stages{
+        stage('Git BZT command'){
+            steps{
+                sh 'bzt execution.yml'
+            }
+        }
         stage("Verify Tooling"){ 
             steps{
                 sh '''
