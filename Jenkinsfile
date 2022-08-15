@@ -30,6 +30,12 @@ pipeline{
                 sh "docker exec -i symfony-cicd /bin/bash"
             }
         }
+        stage("Add Project Dependencies "){
+            steps{
+                sh "composer update"
+                sh "composer require --dev symfony/test-pack "
+            }
+        }
         stage('run test case'){
             steps{
                 sh "php bin/phpunit"
