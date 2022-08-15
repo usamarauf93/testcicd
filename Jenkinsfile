@@ -27,15 +27,14 @@ pipeline{
         }
         stage("SSH Into Container "){
             steps{
-                sh "docker exec -t symfony-cicd /bin/bash"
-                sh "php --version"
+                sh "docker exec -i symfony-cicd /bin/bash"
+ 
             }
         }
         stage("Add Project Dependencies "){
             steps{
                 sh "php --version"
                 sh "composer require --dev symfony/test-pack "
-                sh "composer install"
             }
         }
         stage('run test case'){
