@@ -30,9 +30,9 @@ pipeline{
                 sh "docker exec -i symfony-cicd /bin/bash"
             }
         }
-        stage('Hit url With Lucky Number'){
+        stage('run test case'){
             steps{
-                sh "curl http://localhost:8090/lucky/number"
+                sh "php bin/phpunit"
             }
         }
     }
