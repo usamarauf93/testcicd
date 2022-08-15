@@ -34,7 +34,6 @@ pipeline{
         stage("Add Project Dependencies "){
             steps{
                 sh "php --version"
-                sh "composer require --dev symfony/test-pack "
             }
         }
         stage('run test case'){
