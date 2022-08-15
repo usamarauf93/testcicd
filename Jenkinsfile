@@ -26,7 +26,7 @@ pipeline{
             }
         }
         stage(" Install project dependencies"){
-            step{
+            steps{
                 sh 'composer install'
             }
         }
