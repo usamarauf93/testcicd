@@ -27,7 +27,7 @@ pipeline{
         }
         stage("SSH Into Container "){
             steps{
-                sh "docker exec -i -t symfony-cicd /bin/bash"
+                sh "docker exec -T symfony-cicd /bin/bash"
                 sh "php --version"
             }
         }
