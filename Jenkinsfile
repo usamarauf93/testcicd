@@ -21,13 +21,13 @@ pipeline{
         }
         stage( "start Container"){
             steps{
-                sh 'docker compose up'
+                sh 'docker compose up -d'
 
             }
         }
         stage('Run test Against Container'){
             steps{
-                sh "curl http://localhost:8090"
+                sh "curl http://localhost:8090/lucky/number"
             }
         }
     }
