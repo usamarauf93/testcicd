@@ -30,11 +30,6 @@ pipeline{
                 sh "docker exec -i symfony-cicd /bin/bash"
             }
         }
-        stage(" Install project dependencies"){
-            steps{
-                sh 'composer install'
-            }
-        }
         stage('Hit url With Lucky Number'){
             steps{
                 sh "curl http://localhost:8090/lucky/number"
