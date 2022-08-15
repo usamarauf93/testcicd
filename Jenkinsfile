@@ -25,6 +25,11 @@ pipeline{
 
             }
         }
+        stage("SSH Into Container "){
+            steps{
+                sh "docker exec -it symfony-cicd /bin/bash"
+            }
+        }
         stage(" Install project dependencies"){
             steps{
                 sh 'composer install'
@@ -38,6 +43,7 @@ pipeline{
     }
     post{
         always{
+            sh "exit"
             sh "docker compose down --remove-orphans -v"
             sh "docker compose ps"
         }
