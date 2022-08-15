@@ -25,7 +25,12 @@ pipeline{
 
             }
         }
-        stage('Run test Against Container'){
+        stage(" Install project dependencies"){
+            step{
+                sh 'composer install'
+            }
+        }
+        stage('Hit url With Lucky Number'){
             steps{
                 sh "curl http://localhost:8090/lucky/number"
             }
