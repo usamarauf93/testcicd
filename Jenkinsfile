@@ -38,6 +38,7 @@ pipeline{
         }
         stage('run test case'){
             steps{
+                sh 'pwd'
                 sh "php bin/phpunit"
             }
         }
