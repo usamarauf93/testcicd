@@ -39,7 +39,7 @@ pipeline{
         stage('run test case'){
             steps{
                 sh 'pwd'
-                sh "docker exec -t -w /var/www/html/api api vendor/bin/phpunit "
+                sh "docker exec -t -w /var/www/project symfony-cicd vendor/bin/phpunit "
             }
         }
     }
