@@ -46,6 +46,7 @@ pipeline{
     post{
         always{
             sh "exit"
+            sh 'pwd'
             // sh "docker compose down --remove-orphans -v"
             // sh "docker compose ps"
         }
