@@ -11,7 +11,7 @@ class LuckyController
         $number = random_int(0, 100);
 
         
-        return new Response(json_encode(['hello',$number]));
+        return new Response(json_encode(['luckyNumber',$number]));
 
 
         

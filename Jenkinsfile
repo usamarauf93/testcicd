@@ -25,17 +25,6 @@ pipeline{
 
             }
         }
-        stage("SSH Into Container "){
-            steps{
-                sh "docker exec -i symfony-cicd /bin/bash"
- 
-            }
-        }
-        stage("Add Project Dependencies "){
-            steps{
-                sh "php --version"
-            }
-        }
         stage('run test case'){
             steps{
                 sh 'pwd'
@@ -46,7 +35,6 @@ pipeline{
     post{
         always{
             sh "exit"
-            sh 'pwd'
             // sh "docker compose down --remove-orphans -v"
             // sh "docker compose ps"
         }
