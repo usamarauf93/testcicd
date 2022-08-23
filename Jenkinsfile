@@ -33,10 +33,9 @@ pipeline{
         }
     }
     post{
-        always{
-            sh "exit"
-            // sh "docker compose down --remove-orphans -v"
-            // sh "docker compose ps"
+        always{   
+            sh "docker compose down --remove-orphans -v"
+            sh "docker compose ps"
         }
     }
 }
